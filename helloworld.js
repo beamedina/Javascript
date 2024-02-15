@@ -1,2 +1,2 @@
 console.log("Olá Mundo!");
-//Arquivo da primeira aula
+//Arquivo da aula
