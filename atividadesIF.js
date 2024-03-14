@@ -80,6 +80,8 @@ switch (mes) {
         break;
 };
 
+//* atividade 3 *//
+
 let num = entradaDados.questionFloat('Informe um número: ')
 let num2 = entradaDados.questionFloat('Informe outro: ')
 let operacao = entradaDados.question('Qual operação deseja usar? (+, -, /, *): ')
