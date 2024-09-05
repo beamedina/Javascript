@@ -1,7 +1,7 @@
 {
-  "name": "javascript",
+  "name": "calcula-imc",
   "version": "1.0.0",
-  "type": "module",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,9 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2",
-    "readline-sync": "^1.4.10"
-  },
-  "devDependencies": {},
-  "description": ""
+    "express": "^4.19.2"
+  }
 }
