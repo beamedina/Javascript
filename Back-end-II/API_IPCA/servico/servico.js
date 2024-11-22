@@ -52,3 +52,4 @@ export const calcularReajuste = (valor, mesInicial, anoInicial, mesFinal, anoFin
         valorReajustado: resultado.toFixed(2),
     };
 };
+
