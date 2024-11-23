@@ -9,15 +9,14 @@ app.get('/historicoIPCA', (req, res) => {
     res.json(historicoInflacao);
 });
 
-app.get('/historicoIPCA', (req, res) =>{
-    const ano = buscarIPCAPorAno(req.query.ano);
-    if (ano){
-        res.json(ano)
-    } else if(isNaN(parseInt(req.query.ano))){
-        res.status(400).send({'erro': 'requisição inválida'})
-    } else{
-        res.status(404).send({ "erro": 'Ano não encontrado' })
-    };
+app.get('/historicoIPCA', (req, res) => {
+    const anoInf = req.query.ano;
+    const resultado = anoInf ? buscarIPCAPorAno(anoInf) : buscarInfo();
+    if (resultado.length > 0) {
+        res.json(resultado);
+    } else {
+        res.status(404).send({ "erro": "Nenhum registro encontrado" });
+    }
 });
 
 app.get('/historicoiPCA/:id', (req, res) => {
