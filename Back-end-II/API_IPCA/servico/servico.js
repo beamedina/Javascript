@@ -4,8 +4,8 @@ export const buscarInfo = () =>{
     return historicoInflacao;
 }
 
-export const buscarInfPorAno = (anoInf) => {
-    return historicoInflacao.filter(inf => inf.ano == anoInf)
+export const buscarIPCAPorAno = (anoInf) => {
+    return historicoInflacao.filter(inf => inf.ano == anoInf);
 };
 
 export const buscarIPCAPorid = (id) => {

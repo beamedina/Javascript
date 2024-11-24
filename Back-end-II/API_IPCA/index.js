@@ -4,33 +4,6 @@ import {buscarIPCAPorAno, buscarIPCAPorid, calcularReajuste, buscarInfo } from '
 
 
 const app = express();
-
-app.get('/historicoIPCA', (req, res) => {
-    res.json(historicoInflacao);
-});
-
-app.get('/historicoIPCA', (req, res) => {
-    const anoInf = req.query.ano;
-    const resultado = anoInf ? buscarIPCAPorAno(anoInf) : buscarInfo();
-    if (resultado.length > 0) {
-        res.json(resultado);
-    } else {
-        res.status(404).send({ "erro": "Nenhum registro encontrado" });
-    }
-});
-
-app.get('/historicoiPCA/:id', (req, res) => {
-    const i = buscarIPCAPorid(req.params.id);
-
-    if (i) {
-        res.json(i);
-    } else if (isNaN(parseInt(req.params.id))) {
-        res.status(400).send({ "erro": 'Requisição inválida' })
-    } else {
-        res.status(404).send({ "erro": 'UF não encontrada' })
-    }    
-});
-
 app.get('/historicoIPCA/calculo', (req, res) => {
     const valor = parseFloat(req.query.valor);
     const mesInicial = parseInt(req.query.mesInicial);
@@ -57,3 +30,28 @@ app.get('/historicoIPCA/calculo', (req, res) => {
 app.listen(8080, () => {
     console.log('Servidor iniciado na porta 8080')
 });
+
+
+
+app.get('/historicoIPCA', (req, res) => {
+    const anoInf = req.query.ano;
+    const resultado = anoInf ? buscarIPCAPorAno(anoInf) : buscarInfo();
+    if (resultado.length > 0) {
+        res.json(resultado);
+    } else {
+        res.status(404).send({ "erro": "Nenhum registro encontrado" });
+    }
+});
+
+app.get('/historicoiPCA/:id', (req, res) => {
+    const i = buscarIPCAPorid(req.params.id);
+
+    if (i) {
+        res.json(i);
+    } else if (isNaN(parseInt(req.params.id))) {
+        res.status(400).send({ "erro": 'Requisição inválida' })
+    } else {
+        res.status(404).send({ "erro": 'UF não encontrada' })
+    }    
+});
+
