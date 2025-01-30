@@ -1,5 +1,4 @@
 import express from 'express';
-import historicoInflacao from './dados/dados.js';
 import {buscarIPCAPorAno, buscarIPCAPorid, calcularReajuste, buscarInfo } from './servico/servico.js';
 
 
